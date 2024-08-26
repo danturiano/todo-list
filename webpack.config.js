@@ -35,9 +35,4 @@ module.exports = {
       },
     ],
   },
-  scripts: {
-    build: "webpack",
-    dev: "webpack serve",
-    deploy: "git subtree push --prefix dist origin gh-pages",
-  },
 };
