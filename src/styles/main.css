@@ -1,3 +1,207 @@
-p {
-  color: red;
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #fcfaf8;
+  --grey-color: #adb5bd;
+  --lighter-grey: #cbd1d6;
+  --darker-grey: #868e96;
+  --accent-color: #fa5252;
+  --font-family: "Rubik", sans-serif;
+
+  font-family: "Rubik", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.side-navigation {
+  background-color: var(--secondary-color);
+  width: 14.5vw;
+  height: 100vh;
+  padding: 1rem 1rem;
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  width: calc(100% - 14.5vw);
+  height: 100vh;
+}
+
+.sub-container {
+  width: 40vw;
+  height: 85vh;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.add-taskBtn {
+  width: 100%;
+  padding: 0.5rem 0rem;
+  border: 0px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--grey-color);
+  cursor: pointer;
+  background-color: var(--primary-color);
+}
+
+.add-taskBtn:hover {
+  color: var(--accent-color);
+}
+
+.main-form-container {
+  display: none;
+  width: 100%;
+  height: 10rem;
+  border-radius: 12px;
+  border: 1px solid var(--grey-color);
+}
+
+.form-container {
+  height: 100%;
+  padding: 0.8rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.task-input {
+  padding: 0rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.confirm-input {
+  padding: 0rem 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--lighter-grey);
+  display: flex;
+  justify-content: space-between;
+}
+
+.cancel-submit-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.form-style {
+  border: 0px;
+  font-family: var(--font-family);
+}
+
+.form-style:focus {
+  border: 0px; /* Ensure border remains 0px on focus */
+  outline: none; /* Remove the focus outline */
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 0px;
+  font-family: var(--font-family);
+  cursor: pointer;
+}
+
+.submitBtn {
+  background-color: #fda9a9;
+  color: var(--primary-color);
+}
+
+.options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.date {
+  width: 7.5rem;
+  border: 1px solid var(--grey-color);
+  padding: 0.2rem 0.2rem;
+  color: var(--darker-grey);
+  font-family: var(--font-family);
+}
+
+.priority {
+  color: var(--darker-grey);
+  font-family: var(--font-family);
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.individual-container {
+  display: flex;
+}
+
+.todo-descript {
+  width: 100%;
+}
+
+.bigBtn {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 0.5rem;
+  width: 100%;
+  height: 4rem;
+  margin-bottom: 1rem;
+  border: 0px;
+  border-bottom: 1px solid var(--lighter-grey);
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.doneBtn {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--grey-color);
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.doneBtn:hover {
+  background-image: url("/src/img/done.png");
+  background-size: 9px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.task-txt {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.descript-txt {
+  color: var(--darker-grey);
+  text-align: start;
 }

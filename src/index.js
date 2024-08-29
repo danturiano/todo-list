@@ -1,3 +1,6 @@
 import "./styles/main.css";
+import { ScreenController } from "./scripts/screenController.js";
+import { TodoController } from "./scripts/todoController.js";
 
-console.log("Hello");
+// localStorage.clear();
+ScreenController();

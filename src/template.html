@@ -3,9 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,0,0"
+    />
     <title>Document</title>
   </head>
   <body>
-    <p>Heeeee</p>
+    <div class="container">
+      <div class="side-navigation">
+        <div class="brand"></div>
+        <div class="clickables">
+          <div class="add-task-ha"></div>
+        </div>
+      </div>
+      <div class="main-container">
+        <div class="sub-container">
+          <div class="heading">Today</div>
+          <div>
+            <div class="todo-container"></div>
+            <div class="add-task-container">
+              <button class="add-task add-taskBtn">
+                <img
+                  src="img/newplus.png"
+                  width="22px"
+                  style="margin-bottom: 2.3px"
+                /><span>Add Task</span>
+              </button>
+            </div>
+          </div>
+          <div class="main-form-container">
+            <form action="" class="form-container">
+              <div class="task-input">
+                <div class="text-input">
+                  <input
+                    type="text"
+                    placeholder="Task name"
+                    class="form-style"
+                    id="task"
+                    style="font-weight: 400; font-size: 0.9rem"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Description"
+                    class="form-style"
+                    id="description"
+                  />
+                </div>
+                <div class="options">
+                  <input type="date" class="date" id="date" />
+                  <select id="priority" class="priority">
+                    <option value="low-prio" selected>Low Priority</option>
+                    <option value="med-prio">Medium Priority</option>
+                    <option value="high-prio">High Priority</option>
+                  </select>
+                </div>
+              </div>
+              <div class="confirm-input">
+                <div class="another-container form-style"></div>
+                <div class="cancel-submit-container">
+                  <button type="button" class="cancelBtn btn">Cancel</button>
+                  <button type="submit" class="btn submitBtn">Add Task</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
