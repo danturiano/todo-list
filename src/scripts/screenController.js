@@ -52,6 +52,7 @@ export function ScreenController() {
     data.forEach((todo) => {
       DisplayTodo(todo);
     });
+    console.log(todo.getTodoData());
   }
 
   //DISPLAY TODO
@@ -77,6 +78,10 @@ export function ScreenController() {
       UpdateScreen();
     });
 
+    viewTaskBtn.addEventListener("click", () => {
+      EditTask(element);
+    });
+
     taskTitle.textContent = element.task;
     taskDescript.textContent = element.description;
 
@@ -88,6 +93,90 @@ export function ScreenController() {
     container.appendChild(markCompleteContainer);
     container.appendChild(taskDescriptionContainer);
     todoContainer.appendChild(container);
+  }
+
+  //Edit Todo
+  function EditTask(element) {
+    // Create the modal container
+    const modal = document.createElement("div");
+    modal.style.display = "block";
+    modal.classList.add("modal");
+
+    //Create modal content container
+    const modalContainer = document.createElement("div");
+    modalContainer.classList.add("modal-content");
+
+    // Create the paragraph
+    const paragraph = document.createElement("p");
+    paragraph.textContent = "Edit Task";
+
+    // Create the form
+    const form = document.createElement("form");
+    form.action = "";
+
+    // Create the input container
+    const inputContainer = document.createElement("div");
+    inputContainer.classList.add("text-input");
+
+    // Create the text inputs
+    const task = document.createElement("input");
+    task.classList.add("form-style", "task-txt");
+    task.type = "text";
+    task.value = element.task;
+    const description = document.createElement("input");
+    description.classList.add("form-style", "descript-txt");
+    description.type = "text";
+    description.value = element.description;
+
+    // Append inputs to the input container
+    inputContainer.appendChild(task);
+    inputContainer.appendChild(description);
+
+    // Create the button container
+    const csContainer = document.createElement("div");
+    const buttonContainer = document.createElement("div");
+    const randomContainer = document.createElement("div");
+    buttonContainer.classList.add("confirm-input");
+    buttonContainer.style.marginTop = "0.8rem";
+    csContainer.classList.add("cancel-submit-container");
+
+    // Create the cancel button
+    const cancelButton = document.createElement("button");
+    cancelButton.classList.add("cancelBtn", "btn");
+    cancelButton.textContent = "Cancel";
+    cancelButton.type = "button";
+
+    // Create the submit button
+    const submitButton = document.createElement("input");
+    submitButton.classList.add("submitBtn", "btn");
+    submitButton.type = "submit";
+
+    cancelButton.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      todo.editTodo(element.id, task.value, description.value);
+      UpdateScreen();
+    });
+
+    // Append buttons to the button container
+    csContainer.appendChild(cancelButton);
+    csContainer.appendChild(submitButton);
+    buttonContainer.appendChild(randomContainer);
+    buttonContainer.appendChild(csContainer);
+
+    // Append input container and button container to the form
+    form.appendChild(inputContainer);
+    form.appendChild(buttonContainer);
+
+    // Append paragraph and form to the modal
+    modalContainer.appendChild(paragraph);
+    modalContainer.appendChild(form);
+
+    modal.appendChild(modalContainer);
+    todoContainer.appendChild(modal);
   }
 
   //Show Add Task Container

@@ -37,5 +37,9 @@ export function TodoController() {
     return data.retrieveData("TodayTask");
   };
 
-  return { createTodo, getTodoData, removeTodo };
+  const editTodo = (id, task, description) => {
+    data.editTodoInData("TodayTask", id, task, description);
+  };
+
+  return { createTodo, getTodoData, removeTodo, editTodo };
 }

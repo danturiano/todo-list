@@ -48,5 +48,33 @@ export function DataController() {
     localStorage.setItem(key, updatedArrayString);
   }
 
-  return { storeData, retrieveData, addTodoInData, removeTodoInData };
+  function editTodoInData(key, id, task, description) {
+    const existingArrayString = localStorage.getItem(key);
+
+    let existingArray = [];
+    if (existingArrayString) {
+      existingArray = JSON.parse(existingArrayString);
+    }
+
+    existingArray = existingArray.map((todo) => {
+      if (todo.id == id) {
+        todo.task = task;
+        todo.description = description;
+      }
+      return todo;
+    });
+
+    const updatedArrayString = JSON.stringify(existingArray);
+
+    // Step 5: Store the updated array back to localStorage
+    localStorage.setItem(key, updatedArrayString);
+  }
+
+  return {
+    storeData,
+    retrieveData,
+    addTodoInData,
+    removeTodoInData,
+    editTodoInData,
+  };
 }
